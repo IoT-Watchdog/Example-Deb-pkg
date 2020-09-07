@@ -1,0 +1,12 @@
+Source: hellodebian
+Maintainer: Michael Maier <michael.maier@unraveltec.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 4.5.0
+Section: utils
+
+Package: hellodebian
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: a simple helloworld package
+ Just prints "Hi", it's very useful.
