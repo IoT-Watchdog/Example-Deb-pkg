@@ -1,0 +1,14 @@
+[Unit]
+Description=Example service
+
+
+[Service]
+User=root
+Restart=always
+Environment=PYTHONUNBUFFERED=true
+WatchdogSec=20
+RestartSec=5
+ExecStart=/usr/bin/example.py
+
+[Install]
+WantedBy=multi-user.target

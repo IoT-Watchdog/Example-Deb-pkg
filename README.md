@@ -24,7 +24,7 @@ dch --create --newversion 0.0.1 --package hellodebian
 
 ### Generate src pkg
 
-as root:
+as user:
 ```
 debuild -i -us -uc -S
 ```
@@ -36,4 +36,20 @@ for every target arch:
 OS=raspbian DIST=buster ARCH=armhf pbuilder --create
 OS=debian DIST=buster ARCH=amd64 pbuilder --create
 ```
+
+### release new version
+
+#### update pbuilder env (daily)
+
+```
+OS=raspbian DIST=buster ARCH=armhf pbuilder update
+OS=debian DIST=buster ARCH=amd64 pbuilder update
+```
+
+#### building
+
+* *editeditedit*
+* user@host: dch -i # increment
+* user@host: debuild -i -us -uc -S
+* root@host: cd ..; OS=raspbian DIST=buster ARCH=armhf pbuilder build $(ls -1 *dsc --sort=time|head -1)
 
